@@ -1,39 +1,30 @@
-const credentials = {
-  host: "smtp.gmail.com",
-  port: 465,
-  secure: true,
-  auth: {
-    user: "notificationsaguirre@gmail.com",
-    pass: "@Ethan1803",
-  },
-};
+//import TOKEN from "../config.js";
 
-/*Email.send({
-  Host: "smtp.elasticemail.com",
-  Username: "notificationsaguirre@gmail.com",
-  Password: "F0B0FC6A01EADFC90035F86F0EAB501EC445",
-  SecureToken: "cf900985-9b9b-47dc-b501-32937c77bf19",
-  To: "haroldantonio777@gmail.com",
-  From: "notificationsaguirre@gmail.com",
-  Subject: "This is the subject",
-  Body: "And this is the body",
-}).then((message) => alert(message));*/
+document.getElementById("contact-role").addEventListener("submit", (ev) => {
+  ev.preventDefault();
 
-alert(secret.TokenTest);
+  const myHeaders = new Headers();
+  myHeaders.append("Content-Type", "text/plain;charset=utf-8");
 
-function sendMail(event) {
-  event.preventDefault();
-  console.log("do it");
+  const raw = JSON.stringify({
+    to: "haroldantonio777@gmail.com",
+    subject: "Prueba",
+    body: "<p>Hola</p>",
+  });
 
-  /*
-    const email = {
-    from: "sender@example.com",
-    to: "recipient@example.com",
-    subject: "Test email",
-    text: "This is a test email sent from the browser",
-    };
-    smtp
-    .sendMail(email)
-    .then((info) => console.log(info))
-    .catch((err) => console.error(err));*/
-}
+  const requestOptions = {
+    redirect: "follow",
+    method: "POST",
+    headers: myHeaders,
+    body: raw,
+    mode: "cors",
+  };
+
+  fetch(
+    "https://script.google.com/macros/s/AKfycbzfwkUv1rmt7jaIBEjZu5D_EJS9Nj775SRld_aOk_uYQJdDyYIs76eDXKqTx2Dlv1QyfA/exec",
+    requestOptions
+  )
+    .then((response) => console.log(response))
+    .catch((error) => console.error(error));
+});
+//const ApiURL = TOKEN;
