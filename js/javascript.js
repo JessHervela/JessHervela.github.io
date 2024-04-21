@@ -25,6 +25,6 @@ document.getElementById("contact-role").addEventListener("submit", (ev) => {
     requestOptions
   )
     .then((response) => console.log(response))
-    .catch((error) => console.error(error));
+    .catch((error) => console.log(error));
 });
 //const ApiURL = TOKEN;
