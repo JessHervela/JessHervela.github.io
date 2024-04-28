@@ -106,6 +106,7 @@ async function SendMail(controls) {
     name: controls.name.value,
     subject: controls.subject.value,
     body: controls.message.value,
+    origin: window.location.hostname,
   });
 
   const requestOptions = {
